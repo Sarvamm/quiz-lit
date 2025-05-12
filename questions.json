@@ -1,0 +1,167 @@
+[
+  {
+    "question": "If a train travels 120 miles in 2 hours, what is its average speed?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "60 mph": true,
+      "40 mph": false,
+      "100 mph": false,
+      "240 mph": false
+    }
+  },
+  {
+    "question": "What is the next number in the sequence: 2, 4, 6, 8, ?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "10": true,
+      "12": false,
+      "14": false,
+      "16": false
+    }
+  },
+  {
+    "question": "If a shirt costs $25 and is on sale for 20% off, what is the sale price?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "$20": true,
+      "$5": false,
+      "$22.50": false,
+      "$30": false
+    }
+  },
+  {
+    "question": "Which word does not belong: apple, banana, carrot, orange?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "carrot": true,
+      "apple": false,
+      "banana": false,
+      "orange": false
+    }
+  },
+  {
+    "question": "If John can read 30 pages in an hour, how many pages can he read in 2.5 hours?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "75": true,
+      "60": false,
+      "80": false,
+      "90": false
+    }
+  },
+  {
+    "question": "Solve for x: 2x + 5 = 15",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "5": true,
+      "10": false,
+      "2": false,
+      "20": false
+    }
+  },
+  {
+    "question": "What is the capital of France?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "Paris": true,
+      "London": false,
+      "Berlin": false,
+      "Rome": false
+    }
+  },
+  {
+    "question": "If all A are B and all B are C, then all A are:",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "C": true,
+      "A": false,
+      "B": false,
+      "None": false
+    }
+  },
+  {
+    "question": "A is the father of B. C is the daughter of B. What is the relation of C to A?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "Granddaughter": true,
+      "Daughter": false,
+      "Niece": false,
+      "Sister": false
+    }
+  },
+  {
+    "question": "Which number is missing: 3, 8, 13, ?, 23, 28",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "18": true,
+      "15": false,
+      "20": false,
+      "25": false
+    }
+  },
+  {
+    "question": "Find the odd one out: dog, cat, cow, hen, horse",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "hen": true,
+      "dog": false,
+      "cat": false,
+      "horse": false
+    }
+  },
+  {
+    "question": "Complete the analogy: Doctor is to Hospital as Teacher is to ?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "School": true,
+      "Student": false,
+      "Classroom": false,
+      "Book": false
+    }
+  },
+  {
+    "question": "If 'TABLE' is coded as 'VCDNG', how is 'CHAIR' coded?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "EJCKT": true,
+      "DJCKU": false,
+      "BGZHP": false,
+      "EJCKS": false
+    }
+  },
+  {
+    "question": "What is the synonym of 'Courage'?",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "Bravery": true,
+      "Cowardice": false,
+      "Fear": false,
+      "Anxiety": false
+    }
+  },
+  {
+    "question": "Select the antonym of 'Expand'",
+    "extra_content": "",
+    "image_link": "",
+    "options": {
+      "Contract": true,
+      "Grow": false,
+      "Increase": false,
+      "Enlarge": false
+    }
+  }
+]
