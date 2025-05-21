@@ -272,7 +272,29 @@ def load_questions():
             "a b c": True,
             "a, b, c": False,
             "(a, b, c)": False,
-            "a\nb\nc": False
+            "Error": False
+        }
+    },
+    {
+        "question": "What will be the output of the following code?",
+        "extra_content": "```python\n(lambda x: x-1 if isinstance(x, int) else x*(-1))('123')\n```",
+        "image_link": "",
+        "options": {
+            "122": False,
+            "''": True,
+            "'321'": False,
+            "Error": False
+        }
+    },
+    {
+        "question": "What will be the output of the following code?",
+        "extra_content": "```python\nprint((() == ()) == ())\n```",
+        "image_link": "",
+        "options": {
+            "True": False,
+            "False": True,
+            "TypeError": False,
+            "SyntaxError": False
         }
     }
 ]
@@ -287,13 +309,28 @@ total_questions = st.session_state.total_questions
 st.logo(logo_gif, size="large")
 
 
+@st.dialog("Instructions")
+def show_instructions():
+    st.markdown("""
+                This is a 4 option Multiple Choice Question (MCQ) quiz.
+                There is no time limit, and you can take as much time as you need to answer each question.
+                Select the correct answer from the options given. 
+                You have to select one option before you can proceed to the next question.
+                You cannot go back to the previous questions.
+                Your score will be updated after each question.
+                You can also check your score at the end of the quiz. Good luck!
+                """)
+
 @st.dialog("Share this quiz!")
 def share_quiz():
     st.markdown("Share this quiz with others!")       
     link1 = "https://www.linkedin.com/feed/?shareActive&mini=true&text="
     link2 = f"I just scored {st.session_state.score}/23 in this awesome %20%23Python quiz created by @Sarvamm Rathore on  %20%23Streamlit ! Can you beat my score? Check it out here! https://pythonhardquiz.streamlit.app/"
     link = link1 + link2
-    st.link_button("Linkedin", link)
+    st.markdown(
+    f'<a href="{link}" style="display: inline-block; padding: 12px 20px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; font-size: 16px; border-radius: 4px;">Linkedin</a>',
+    unsafe_allow_html=True
+)
         
 
 @st.dialog(" ", width="large")
@@ -463,11 +500,14 @@ with st.sidebar:
     st.write(
         f"Questions attempted: {len(st.session_state.attempted_questions)}/{total_questions}"
     )
+    if st.button("Instructions"):
+        show_instructions()
     if st.button("share this quiz!"):
         share_quiz()
     if st.button("About creator"):
         about_creator()
-    st.markdown(10 * "<br>", unsafe_allow_html=True)
+        
+    st.markdown(8 * "<br>", unsafe_allow_html=True)
     st.caption("Support me by clicking on this button 👇")
     button(username=coffee_username, floating=False, width=221)
     st.caption(version)
