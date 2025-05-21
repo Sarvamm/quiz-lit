@@ -1,9 +1,6 @@
 import streamlit as st
-
-
 import plotly.express as px
 from streamlit_extras.buy_me_a_coffee import button
-import webbrowser
 import streamlit.components.v1 as components
 
 version: str = "0.0.1"
@@ -292,13 +289,12 @@ st.logo(logo_gif, size="large")
 
 @st.dialog("Share this quiz!")
 def share_quiz():
-    st.markdown("Share this quiz with others!")
-    if st.button("Linkedin"):
-        text = f"I just scored {st.session_state.score}/23 in this awesome %20%23Python quiz created by @Sarvamm Rathore on  %20%23Streamlit ! Can you beat my score? Check it out here! https://pythonhardquiz.streamlit.app/"
-        webbrowser.open(
-            "https://www.linkedin.com/feed/?shareActive&mini=true&text=" + text
-        )
-
+    st.markdown("Share this quiz with others!")       
+    link1 = "https://www.linkedin.com/feed/?shareActive&mini=true&text="
+    link2 = f"I just scored {st.session_state.score}/23 in this awesome %20%23Python quiz created by @Sarvamm Rathore on  %20%23Streamlit ! Can you beat my score? Check it out here! https://pythonhardquiz.streamlit.app/"
+    link = link1 + link2
+    st.link_button("Linkedin", link)
+        
 
 @st.dialog(" ", width="large")
 def about_creator():
@@ -471,7 +467,7 @@ with st.sidebar:
         share_quiz()
     if st.button("About creator"):
         about_creator()
-    st.markdown(15 * "<br>", unsafe_allow_html=True)
+    st.markdown(10 * "<br>", unsafe_allow_html=True)
     st.caption("Support me by clicking on this button 👇")
     button(username=coffee_username, floating=False, width=221)
     st.caption(version)
