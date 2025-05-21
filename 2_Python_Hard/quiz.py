@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import plotly.express as px
 from streamlit_extras.buy_me_a_coffee import button
+import webbrowser
 
 version: str = "0.0.1"
 logo_gif: str = (
@@ -24,17 +25,26 @@ if "total_questions" not in st.session_state:
 total_questions = st.session_state.total_questions
 st.logo(logo_gif, size="large")
 
+
+@st.dialog("Share this quiz!")
+def share_quiz():
+    st.markdown("Share this quiz with others!")
+    if st.button("Linkedin"):
+        webbrowser.open("https://www.linkedin.com/feed/")
+
+
 with st.sidebar:
     st.header("Progress")
     st.progress(len(st.session_state.attempted_questions) / total_questions)
     st.write(
         f"Questions attempted: {len(st.session_state.attempted_questions)}/{total_questions}"
     )
-    st.markdown(9 * "<br>", unsafe_allow_html=True)
+    if st.button("share this quiz!"):
+        share_quiz()
+    st.markdown(15 * "<br>", unsafe_allow_html=True)
     st.caption("Support me by clicking on this button 👇")
     button(username=coffee_username, floating=False, width=221)
     st.caption(version)
-    
 
 
 # Load questions from JSON file
@@ -44,6 +54,7 @@ def load_questions():
         with open(questions_file) as f:
             return json.load(f)
     return []
+
 
 # Load questions
 questions = load_questions()
@@ -123,7 +134,7 @@ if not st.session_state.quiz_completed:
 
 # End screen
 if st.session_state.quiz_completed:
-    st.header("Quiz Complete! 🎉", divider=True)
+    st.header("Quiz Complete!", divider=True)
 
     fig = px.pie(
         names=["Correct", "Incorrect"],
@@ -132,12 +143,15 @@ if st.session_state.quiz_completed:
             total_questions - st.session_state.score,
         ],
         hole=0.6,
-        color_discrete_sequence=( "#20ED5D", "#ED2071" ),
+        color_discrete_sequence=("#20ED5D", "#ED2071"),
         title=f"You scored {st.session_state.score} out of {total_questions} questions right!",
     )
-    st.plotly_chart(fig)
-    st.markdown("Check out the card below for solutions!")
-    st.markdown(
+    con = st.container(border=True)
+    con.plotly_chart(fig)
+
+    con2 = st.container(border=True)
+    con2.markdown("Check out the card below for solutions!")
+    con2.markdown(
         """ <a target="_blank" href="https://github-readme-medium-recent-article.vercel.app/medium/@srvmrtr/0"><img src="https://github-readme-medium-recent-article.vercel.app/medium/@srvmrtr/0" alt="Recent Article 0"> """,
         unsafe_allow_html=True,
     )
