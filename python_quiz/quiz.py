@@ -1,4 +1,16 @@
 import streamlit as st
+
+if "current_question_idx" not in st.session_state:
+    st.session_state.current_question_idx = 0
+if "score" not in st.session_state:
+    st.session_state.score = 0
+if "attempted_questions" not in st.session_state:
+    st.session_state.attempted_questions = set()
+if "quiz_completed" not in st.session_state:
+    st.session_state.quiz_completed = False
+if "total_questions" not in st.session_state:
+    st.session_state.total_questions = 1
+    
 import json
 from pathlib import Path
 import plotly.express as px
@@ -12,16 +24,7 @@ logo_gif: str = (
 )
 coffee_username: str = "astrayn"
 
-if "current_question_idx" not in st.session_state:
-    st.session_state.current_question_idx = 0
-if "score" not in st.session_state:
-    st.session_state.score = 0
-if "attempted_questions" not in st.session_state:
-    st.session_state.attempted_questions = set()
-if "quiz_completed" not in st.session_state:
-    st.session_state.quiz_completed = False
-if "total_questions" not in st.session_state:
-    st.session_state.total_questions = 1
+
 
 
 # Load questions from JSON file
