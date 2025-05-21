@@ -212,7 +212,10 @@ def about_creator():
 
 with st.sidebar:
     st.header("Progress")
-    st.progress(len(st.session_state.attempted_questions) / total_questions)
+    try:
+        st.progress(len(st.session_state.attempted_questions) / total_questions)
+    except ZeroDivisionError:
+        st.progress(len(st.session_state.attempted_questions) / 1)
     st.write(
         f"Questions attempted: {len(st.session_state.attempted_questions)}/{total_questions}"
     )
