@@ -2,8 +2,39 @@ import streamlit as st
 import json
 from pathlib import Path
 import plotly.express as px
+from streamlit_extras.buy_me_a_coffee import button
 
-# Initialize session state variables if they don't exist
+version: str = "0.0.1"
+logo_gif: str = (
+    "https://media1.tenor.com/m/d54XfQ2BGwcAAAAd/raccoon-circle-dance-round.gif"
+)
+coffee_username: str = "astrayn"
+
+if "current_question_idx" not in st.session_state:
+    st.session_state.current_question_idx = 0
+if "score" not in st.session_state:
+    st.session_state.score = 0
+if "attempted_questions" not in st.session_state:
+    st.session_state.attempted_questions = set()
+if "quiz_completed" not in st.session_state:
+    st.session_state.quiz_completed = False
+if "total_questions" not in st.session_state:
+    st.session_state.total_questions = 1
+
+total_questions = st.session_state.total_questions
+st.logo(logo_gif, size="large")
+
+with st.sidebar:
+    st.header("Progress")
+    st.progress(len(st.session_state.attempted_questions) / total_questions)
+    st.write(
+        f"Questions attempted: {len(st.session_state.attempted_questions)}/{total_questions}"
+    )
+    st.markdown(9 * "<br>", unsafe_allow_html=True)
+    st.caption("Support me by clicking on this button 👇")
+    button(username=coffee_username, floating=False, width=221)
+    st.caption(version)
+    
 
 
 # Load questions from JSON file
@@ -13,7 +44,6 @@ def load_questions():
         with open(questions_file) as f:
             return json.load(f)
     return []
-
 
 # Load questions
 questions = load_questions()
@@ -102,7 +132,7 @@ if st.session_state.quiz_completed:
             total_questions - st.session_state.score,
         ],
         hole=0.6,
-        color_discrete_sequence=["#20ED5D", "#ED2071"],
+        color_discrete_sequence=( "#20ED5D", "#ED2071" ),
         title=f"You scored {st.session_state.score} out of {total_questions} questions right!",
     )
     st.plotly_chart(fig)
