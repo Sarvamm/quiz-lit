@@ -9,6 +9,14 @@ logo_gif: str = (
 )
 coffee_username: str = "astrayn"
 
+st.set_page_config(
+    page_title="Python Quiz difficulty: HARD",
+    page_icon="🐍",
+    initial_sidebar_state="expanded",
+    layout="wide"
+)
+
+
 if "current_question_idx" not in st.session_state:
     st.session_state.current_question_idx = 0
 if "score" not in st.session_state:
@@ -112,7 +120,7 @@ def load_questions():
     },
     {
         "question": "What will be the output of the following code?",
-        "extra_content": "```python\nfns = square, double, triple, cube\n\na, *b, c = fns\n\nprint( b[0](b[-1](2)) )\n```",
+        "extra_content": "```python square=lambda x: x**2\ndouble=lambda x: x*2\ntriple=lambda x: x*3\ncube=lambda x: x**3\nfns = square, double, triple, cube\n\na, *b, c = fns\n\nprint( b[0](b[-1](2)) )\n```",
         "image_link": "",
         "options": {
             "6": False,
